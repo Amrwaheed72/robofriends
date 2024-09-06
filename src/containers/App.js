@@ -1,6 +1,6 @@
 import { Component } from "react"
 import CardList from "../components/CardList";
-import robots from "../robots";
+// import robots from "../robots";
 import SearchBox from "../components/searchBox";
 import Scroll from '../components/scroll';
 import './App.css'
