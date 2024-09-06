@@ -2,6 +2,7 @@ import { Component } from "react"
 import CardList from "../components/CardList";
 // import robots from "../robots";
 import SearchBox from "../components/searchBox";
+import Errorboundry from "../components/ErrorBoundry";
 import Scroll from '../components/scroll';
 import './App.css'
 
@@ -31,16 +32,18 @@ class App extends Component {
 
 
         return !robots.length ?
-            <h1>Loading</h1>:
-        (
-            <div className="tc">
-                <h1 className="f1">RoboFriends</h1>
-                <SearchBox searchChange={this.onSeachChange} />
-                <Scroll>
-                    <CardList robots={filterrobots} />
-                </Scroll>
-            </div>
-        )
+            <h1>Loading</h1> :
+            (
+                <div className="tc">
+                    <h1 className="f1">RoboFriends</h1>
+                    <SearchBox searchChange={this.onSeachChange} />
+                    <Scroll>
+                        <Errorboundry>
+                            <CardList robots={filterrobots} />
+                        </Errorboundry>
+                    </Scroll>
+                </div>
+            )
     }
 }
 export default App
